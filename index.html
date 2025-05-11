@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Початковий екран -->
+        <section id="start" class="section active">
+            <img src="star wars3.jpg" class="background-image" alt="Фонове зображення">
+            <h1>Шлях Сили</h1>
+            <div class="story-text">
+                Давним-давно у далекій-далекій галактиці, Сила шукає своїх обранців...
+                Уведіть ім'я свого персонажа, щоб розпочати пригоду:
+            </div>
+            <input type="text" id="character-name" class="name-input" placeholder="Введіть ім'я падавана..." required>
+            <div class="choices">
+                <button class="choice-btn" data-target="intro">Розпочати пригоду</button>
+            </div>
+        </section>
+
+        <!-- Екран з вступом -->
+        <section id="intro" class="section">
+            <h1>Шлях Сили</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Мудрість</div>
+                    <div class="stat-value" id="wisdom">0</div>
+                </div>
+                <div class="stat">
+                    <div>Сила</div>
+                    <div class="stat-value" id="power">0</div>
+                </div>
+                <div class="stat">
+                    <div>Інтелект</div>
+                    <div class="stat-value" id="intelligence">0</div>
+                </div>
+                <div class="stat">
+                    <div>Агресія</div>
+                    <div class="stat-value" id="aggression">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Ти — <span id="player-name"></span>, молодий(а) падаван, якого знайшли на віддаленій планеті. 
+                Твоя сила вражає навіть найстаріших майстрів. Але шлях твій ще не визначено.
+                Тебе привели до Храму, де ти маєш пройти випробування, які покажуть, 
+                ким ти станеш: Джедаєм чи Сітхом.
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="light-path-1" data-side="light">Я готовий служити Силі та Республіці</button>
+                <button class="choice-btn" data-target="dark-path-1" data-side="dark">Я прагну сили, і я візьму її сам</button>
+            </div>
+        </section>
+
+        <!-- Світла сторона - шлях 1 -->
+        <section id="light-path-1" class="section">
+            <h1>Тренування Джедая</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Мудрість</div>
+                    <div class="stat-value" id="wisdom-light-1">0</div>
+                </div>
+                <div class="stat">
+                    <div>Сила</div>
+                    <div class="stat-value" id="power-light-1">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Майстер Йода особисто взявся за твоє навчання. "Великий потенціал у тобі бачу, <span class="player-name"></span>," - каже він.
+                
+                Твоє перше завдання: захистити мирне поселення на планеті Нор від жорстоких піратів.
+                Коли ти прибуваєш на місце, бачиш, що пірати оточили село. Вони вимагають віддати їм всі запаси їжі.
+                
+                Як ти вирішиш діяти?
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="light-path-2a" data-wisdom="2">Спробую вести переговори з піратами</button>
+                <button class="choice-btn" data-target="light-path-2b" data-wisdom="-1" data-power="2">Атакую піратів, щоб захистити невинних</button>
+            </div>
+        </section>
+
+        <!-- Світла сторона - шлях 2a (переговори) -->
+        <section id="light-path-2a" class="section">
+            <h1>Дипломатичне рішення</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Мудрість</div>
+                    <div class="stat-value" id="wisdom-light-2a">0</div>
+                </div>
+                <div class="stat">
+                    <div>Сила</div>
+                    <div class="stat-value" id="power-light-2a">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Ти підходиш до лідера піратів з піднятими руками, показуючи, що прийшов з миром.
+                
+                "Я розумію вашу скруту," - говориш ти. "Але є інший вихід. Допоможіть жителям відремонтувати іригаційну систему, і врожаю вистачить на всіх."
+                
+                Твої слова, підкріплені силою переконання Джедая, змушують ватажка піратів задуматись. Зрештою, обидві сторони приходять до угоди.
+                
+                Повернувшись до Храму, Майстер Йода схвально киває: "Сила Джедая не в світловому мечі, а в мудрості."
+                
+                Настав час справжнього випробування у Кришталевому Храмі.
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="light-temple">Вирушити до Кришталевого Храму</button>
+            </div>
+        </section>
+
+        <!-- Світла сторона - шлях 2b (атака) -->
+        <section id="light-path-2b" class="section">
+            <h1>Силовий підхід</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Мудрість</div>
+                    <div class="stat-value" id="wisdom-light-2b">0</div>
+                </div>
+                <div class="stat">
+                    <div>Сила</div>
+                    <div class="stat-value" id="power-light-2b">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Ти активуєш свій світловий меч і кидаєшся в бій. Твоя сила вражає - пірати розбігаються, зіткнувшись із лютістю Джедая.
+                
+                Жителі села врятовані, але Майстер Йода, коли ти повертаєшся до Храму, виглядає стурбованим.
+                
+                "Перемога це була, так," - повільно говорить він. "Але гнів відчув я у твоїх діях. Пам'ятай: Джедай використовує силу для захисту, ніколи для нападу."
+                
+                Ти розумієш, що тобі ще багато чому треба навчитися. Настав час справжнього випробування у Кришталевому Храмі.
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="light-temple">Вирушити до Кришталевого Храму</button>
+            </div>
+        </section>
+
+        <!-- Світла сторона - випробування в храмі -->
+        <section id="light-temple" class="section">
+            <h1>Випробування в Кришталевому Храмі</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Мудрість</div>
+                    <div class="stat-value" id="wisdom-temple">0</div>
+                </div>
+                <div class="stat">
+                    <div>Сила</div>
+                    <div class="stat-value" id="power-temple">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                У глибинах стародавнього Кришталевого Храму ти раптом опиняєшся в повній темряві.
+                
+                Ти чуєш таємничий голос Сили, який шепоче: "Не дозволяй страху керувати тобою..."
+                
+                Перед тобою з'являється видіння: твої друзі в небезпеці, вони гинуть від рук Сітхів. Гнів і страх наповнюють твоє серце.
+                
+                Ти відчуваєш, як темна сторона закликає тебе - викликає бажання помститися, знищити ворогів, стати могутнішим, щоб більше ніколи не втратити близьких.
+                
+                Як ти відреагуєш на це видіння?
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="jedi-ending">Прийняти страх, але не піддатися йому — я маю зберегти спокій навіть перед обличчям темряви</button>
+                <button class="choice-btn" data-target="balanced-ending">Віддатися гніву та помститися за друзів — я використаю темну сторону, щоб досягти справедливості</button>
+            </div>
+        </section>
+
+        <!-- Темна сторона - шлях 1 -->
+        <section id="dark-path-1" class="section">
+            <h1>Тренування Сітха</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Інтелект</div>
+                    <div class="stat-value" id="intelligence-dark-1">0</div>
+                </div>
+                <div class="stat">
+                    <div>Агресія</div>
+                    <div class="stat-value" id="aggression-dark-1">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Лорд Сітхів Дарт Тіранус бачить у тобі потенціал. "Твоя жага до сили... вона робить тебе сильнішим, <span class="player-name"></span>," - говорить він з посмішкою.
+                
+                Твоє перше завдання: викрасти кристал кайбер з Храму Джедаїв на Іллумі.
+                Це небезпечна місія, але винагорода - власний світловий меч і визнання твоєї сили - того варта.
+                
+                Як ти виконаєш це завдання?
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="dark-path-2a" data-intelligence="2">Таємно проникну в храм і уникатиму сутичок</button>
+                <button class="choice-btn" data-target="dark-path-2b" data-aggression="2">Увірвуся в храм і знищу всіх, хто стане на заваді</button>
+            </div>
+        </section>
+
+        <!-- Темна сторона - шлях 2a (таємне проникнення) -->
+        <section id="dark-path-2a" class="section">
+            <h1>Шлях хитрості</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Інтелект</div>
+                    <div class="stat-value" id="intelligence-dark-2a">0</div>
+                </div>
+                <div class="stat">
+                    <div>Агресія</div>
+                    <div class="stat-value" id="aggression-dark-2a">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Ти вивчаєш плани Храму Джедаїв і знаходиш таємний вхід через стародавні катакомби.
+                
+                Використовуючи техніки маскування Сили, ти проникаєш всередину непоміченим. Джедаї навіть не підозрюють про твою присутність.
+                
+                У священній печері ти знаходиш рідкісний червоний кристал кайбер і забираєш його.
+                
+                Повернувшись до свого майстра, ти отримуєш схвальний кивок: "Хитрість і терпіння - цінні якості Сітха. Твій розум так само гострий, як і твоя сила."
+                
+                Але на зворотному шляху, тебе перестріває лицар-джедай, який відчув пропажу кристала.
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="dark-jedi-confrontation">Зустрітися з Джедаєм</button>
+            </div>
+        </section>
+
+        <!-- Темна сторона - шлях 2b (атака) -->
+        <section id="dark-path-2b" class="section">
+            <h1>Шлях сили</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Інтелект</div>
+                    <div class="stat-value" id="intelligence-dark-2b">0</div>
+                </div>
+                <div class="stat">
+                    <div>Агресія</div>
+                    <div class="stat-value" id="aggression-dark-2b">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                Ти атакуєш головний вхід Храму, використовуючи всю свою лють. Охоронці падають один за одним під ударами твоєї сили.
+                
+                Твоя лють підживлює твою силу. Ти відчуваєш, як темна сторона тече крізь тебе, роблячи тебе майже непереможним.
+                
+                У священній печері ти знаходиш не один, а кілька кристалів кайбер і забираєш їх усі.
+                
+                Повернувшись до свого майстра, ти бачиш у його очах суміш захоплення і... страху? "Твоя сила вражає," - говорить він. "Можливо, навіть занадто..."
+                
+                На зворотному шляху тебе перестріває лицар-джедай, який прийшов помститися за своїх загиблих братів.
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="dark-jedi-confrontation">Зустрітися з Джедаєм</button>
+            </div>
+        </section>
+
+        <!-- Темна сторона - зіткнення з Джедаєм -->
+        <section id="dark-jedi-confrontation" class="section">
+            <h1>Зіткнення з Джедаєм</h1>
+            <div class="stats">
+                <div class="stat">
+                    <div>Інтелект</div>
+                    <div class="stat-value" id="intelligence-confrontation">0</div>
+                </div>
+                <div class="stat">
+                    <div>Агресія</div>
+                    <div class="stat-value" id="aggression-confrontation">0</div>
+                </div>
+            </div>
+            <div class="story-text">
+                "Стій!" - наказує лицар-джедай, активуючи свій синій світловий меч. "Ти вкрав те, що не належить тобі. І я відчуваю темну сторону в тобі."
+                
+                Це майстер Кахліл Кота, відомий своєю мудрістю і справедливістю. Він дивиться на тебе не з ненавистю, а з... жалем?
+                
+                "Ще не пізно повернутися до світла," - говорить він. "Я відчуваю конфлікт у тобі."
+                
+                Твій кристал кайбер пульсує у твоїй руці, ніби підтверджуючи його слова. Що ти зробиш?
+            </div>
+            <div class="choices">
+                <button class="choice-btn" data-target="balanced-ending">Вислухати Джедая і обміркувати його слова про повернення</button>
+                <button class="choice-btn" data-target="sith-ending">Знищити Джедая і довести свою відданість темній стороні</button>
+            </div>
+        </section>
+
+        <!-- Кінцівка Джедая -->
+        <section id="jedi-ending" class="section">
+            <h1>Шлях Джедая</h1>
+            <div class="ending-image jedi-ending"></div>
+            <div class="story-text">
+                Ти глибоко вдихаєш, приймаючи свої емоції, але не дозволяючи їм керувати тобою. "Страх веде до гніву, гнів веде до ненависті..." - згадуєш ти слова Йоди.
+                
+                Ти відпускаєш свій страх, знаходячи спокій навіть перед лицем темряви. Видіння зникає, і перед тобою з'являється кристал кайбер, який сяє яскравим блакитним світлом.
+                
+                Роки потому, <span class="player-name"></span>, ти стаєш Майстром-Джедаєм, відомим своєю мудрістю та спокоєм. Твої учні поширюють світло Сили по всій галактиці.
+                
+                Темна сторона завжди буде спокушати, але ти знайшов внутрішній баланс, який робить тебе справжнім стражем миру і справедливості.
+                
+                <strong>Кінцівка: Майстер Джедай</strong>
+            </div>
+            <button class="restart-btn">Почати спочатку</button>
+        </section>
+
+        <!-- Кінцівка Сітха -->
+        <section id="sith-ending" class="section">
+            <h1>Шлях Сітха</h1>
+            <div class="ending-image sith-ending"></div>
+            <div class="story-text">
+                Ти без вагань атакуєш Джедая, відчуваючи, як темна сторона підсилює кожен твій удар. Бій жорстокий, але короткий.
+                
+                Світловий меч майстра Коти падає на землю, а сам він, переможений, дивиться на тебе з розчаруванням: "Ти обрав легкий шлях..."
+                
+                "Я обрав шлях сили," - відповідаєш ти, завдаючи останнього удару.
+                
+                Роки потому, <span class="player-name"></span>, ти стаєш могутнім Лордом Сітхів. Галактика тремтить від одного твого імені. Навіть твій колишній майстер не насмілюється кинути тобі виклик.
+                
+                Сила, влада, свобода - все, чого ти бажав, тепер твоє. Але спокій... спокій залишається недосяжним.
+                
+                <strong>Кінцівка: Лорд Сітхів</strong>
+            </div>
+            <button class="restart-btn">Почати спочатку</button>
+        </section>
+
+        <!-- Кінцівка балансу -->
+        <section id="balanced-ending" class="section">
+            <h1>Шлях Балансу</h1>
+            <div class="ending-image balance-ending"></div>
+            <div class="story-text">
+                Ти робиш крок, який мало хто наважувався зробити до тебе - приймаєш обидві сторони Сили.
+                
+                "Немає світла без темряви," - розумієш ти. "І немає темряви без світла."
+                
+                Твій кристал кайбер, відчуваючи твій внутрішній стан, набуває унікального пурпурового відтінку - кольору, що символізує баланс між двома сторонами Сили.
+                
+                Роки потому, <span class="player-name"></span>, ти стаєш легендою - не Джедаєм, не Сітхом, а чимось новим. Хранителем Балансу, який розуміє всі аспекти Сили і використовує їх з мудрістю.
+                
+                Джедаї не довіряють тобі, Сітхи бояться, але обидві сторони поважають твою силу і мудрість.
+                
+                <strong>Кінцівка: Хранитель Балансу</strong>
+            </div>
+            <button class="restart-btn">Почати спочатку</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+    
